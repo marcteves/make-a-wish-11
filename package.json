@@ -1,0 +1,31 @@
+{
+  "name": "make-a-wish-11",
+  "description": "This bot reminds you to make a wish on 11:11",
+  "version": "0.0.1",
+  "homepage": "https://github.com/marcteves/make-a-wish-11",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/marcteves/make-a-wish-11.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marcteves/make-a-wish-11/issues"
+  },
+  "dependencies": {
+    "tuiter": "~0.2.12",
+    "express": "~4.9.0"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  },
+  "author": {
+    "name": "Marc Teves",
+    "email": "gmarc.teves@gmail.com",
+    "url": "https://github.com/marcteves"
+  },
+  "private": false,
+  "license": "none"
+}
