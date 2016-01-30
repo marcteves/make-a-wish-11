@@ -7,11 +7,9 @@ app.listen(process.env.PORT || 5000);
 // END HEROKU SETUP
 
 
-// Listbot config
-//
 // Config.keys uses environment variables so sensitive info is not in the repo.
 var config = {
-    me: 'MakeAWish_11_11', // The authorized account with a list to retweet.
+    me: 'MakeAWish_11_11',
     tweetmsgAM: "It's 11:11AM. Make a wish!",
     tweetmsgPM: "It's 11:11PM. Make a wish!",
     keys: {
@@ -48,12 +46,11 @@ function onTweet(err) {
 // Checks if the time is 11:11 using UTC time.
 function checkTime(){
   var d = new Date();
-  if (d.getUTCHours() + 8 == 23 && d.getUTCMinutes() == 40){
+  if (d.getUTCHours() + 8 == 23 && d.getUTCMinutes() == 11){
     onEleven("AM");
   } else if (d.getUTCHours() + 8 == 11 && d.getUTCMinutes() == 11){
     onEleven("PM");
   }
-  console.log("ayyylamo");
 }
 
 // The application itself.
