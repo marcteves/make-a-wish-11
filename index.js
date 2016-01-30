@@ -1,6 +1,6 @@
 // START HEROKU SETUP
 var express = require("express");
-var http = require("http");
+var https = require("https");
 var app = express();
 app.get('/', function(req, res){ res.send('The robot is happily running.'); });
 app.listen(process.env.PORT || 5000);
@@ -65,5 +65,5 @@ var tu = require('tuiter')(config.keys);
 setInterval(checkTime, 60000);
 
 setInterval(function() {
-  http.get("https://immense-caverns-17058.herokuapp.com");
+  https.get("https://immense-caverns-17058.herokuapp.com");
 }, 300000);
