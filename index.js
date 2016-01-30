@@ -62,7 +62,7 @@ var tu = require('tuiter')(config.keys);
 
 //Checks if the time is 11:11 ever minute. Ideally, this will not skip over
 //11:11 and make sure it doesn't post twice per 11:11. (Better solution soon.)
-setInterval(checkTime, 3600000);
+setInterval(checkTime, 60000);
 
 setInterval(function() {
   http.get("https://immense-caverns-17058.herokuapp.com");
