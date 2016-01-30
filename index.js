@@ -1,5 +1,6 @@
 // START HEROKU SETUP
 var express = require("express");
+var http = require("http");
 var app = express();
 app.get('/', function(req, res){ res.send('The robot is happily running.'); });
 app.listen(process.env.PORT || 5000);
@@ -61,4 +62,8 @@ var tu = require('tuiter')(config.keys);
 
 //Checks if the time is 11:11 ever minute. Ideally, this will not skip over
 //11:11 and make sure it doesn't post twice per 11:11. (Better solution soon.)
-setInterval(checkTime, 60000);
+setInterval(checkTime, 3600000);
+
+setInterval(function() {
+  http.get("https://immense-caverns-17058.herokuapp.com");
+}, 300000);
