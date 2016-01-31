@@ -1,7 +1,7 @@
 {
   "name": "make-a-wish-11",
   "description": "This bot reminds you to make a wish on 11:11",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "homepage": "https://github.com/marcteves/make-a-wish-11",
   "main": "index.js",
   "repository": {

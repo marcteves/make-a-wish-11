@@ -12,6 +12,8 @@ var config = {
     me: 'MakeAWish_11_11',
     tweetmsgAM: "It's 11:11AM. Make a wish!",
     tweetmsgPM: "It's 11:11PM. Make a wish!",
+    tweetmsgAMSoon: "It's going to be 11:11AM soon. Get ready to make a wish.",
+    tweetmsgPMSoon: "It's going to be 11:11PM soon. Get ready to make a wish.",
     keys: {
         consumer_key: process.env.CONSUMER_KEY,
         consumer_secret: process.env.CONSUMER_SECRET,
@@ -29,6 +31,18 @@ function onEleven(when) {
   } else if (when == "PM"){
     tu.update({
       status: config.tweetmsgPM
+    }, onTweet);
+  }
+}
+
+function onSoon(ampm){
+  if (ampm == "AM"){
+    tu.update({
+      status: config.tweetmsgAMSoon
+    }, onTweet);
+  } else if (ampm == "PM"){
+    tu.update({
+      status: config.tweetmsgPMSoon
     }, onTweet);
   }
 }
@@ -53,6 +67,15 @@ function checkTime(){
   }
 }
 
+function checkIfSoon(){
+  var dd = new Date();
+  if (dd.getUTCHours() + 8 == 23 && dd.getUTCMinutes() < 11 && dd.getUTCMinutes() > 6){
+    onSoon("PM");
+  } else if (dd.getUTCHours() + 8 == 11 && dd.getUTCMinutes() < 11 && dd.getUTCMinutes() > 6){
+    onSoon("AM");
+  }
+}
+
 // The application itself.
 // Use the tuiter node module to get access to twitter.
 var tu = require('tuiter')(config.keys);
@@ -63,4 +86,5 @@ setInterval(checkTime, 60000);
 
 setInterval(function() {
   https.get("https://immense-caverns-17058.herokuapp.com");
+  checkIfSoon();
 }, 300000);
