@@ -13,10 +13,10 @@ var config = {
     tweetmsgAM: "It's 11:11AM. Make a wish!",
     tweetmsgPM: "It's 11:11PM. Make a wish!",
     keys: {
-        consumer_key: 'quwGEB6GsfqrBDibykrwR486g',
-        consumer_secret: 'lNwuEtkTQdma47GBqZCOrovV5VATKw7WVlCbLeJ5tZZcKkpYND',
-        access_token_key: '4825553844-E9btNFIHgh1ESiuiYLrwkmi0Zya1XWa9J6nlHKR',
-        access_token_secret: 'YLwtswYQ4eKpDomrrz5PGKOK75ckkBMbSyMr0f2Z1CejZ'
+        consumer_key: process.env.CONSUMER_KEY,
+        consumer_secret: process.env.CONSUMER.SECRET,
+        access_token_key: process.env.ACCESS_TOKEN_KEY,
+        access_token_secret: process.env.ACCESS_TOKEN_SECRET
     },
 };
 
@@ -47,9 +47,9 @@ function onTweet(err) {
 function checkTime(){
   var d = new Date();
   if (d.getUTCHours() + 8 == 23 && d.getUTCMinutes() == 11){
-    onEleven("AM");
-  } else if (d.getUTCHours() + 8 == 11 && d.getUTCMinutes() == 11){
     onEleven("PM");
+  } else if (d.getUTCHours() + 8 == 11 && d.getUTCMinutes() == 11){
+    onEleven("AM");
   }
 }
 
